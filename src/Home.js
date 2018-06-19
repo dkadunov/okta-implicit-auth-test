@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withAuth } from '@okta/okta-react';
+import React, { Component } from "react";
+import { withAuth } from "@okta/okta-react";
 
 class Home extends Component {
   constructor(props) {
@@ -24,21 +24,21 @@ class Home extends Component {
   }
 
   async login() {
-    // Redirect to '/' after login
-    this.props.auth.login('/');
+    this.props.auth.login("/");
   }
 
   async logout() {
-    // Redirect to '/' after logout
-    this.props.auth.logout('/');
+    this.props.auth.logout("/");
   }
 
   render() {
     if (this.state.authenticated === null) return null;
-    return this.state.authenticated ?
-      <button onClick={this.logout}>Logout</button> :
-      <button onClick={this.login}>Login</button>;
+    return this.state.authenticated ? (
+      <button onClick={this.logout}>Logout</button>
+    ) : (
+      <button onClick={this.login}>Login</button>
+    );
   }
-};1
+}
 
 export default withAuth(Home);
